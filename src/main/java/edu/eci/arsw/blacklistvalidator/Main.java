@@ -15,9 +15,13 @@ public class Main {
     
     public static void main(String a[]){
         HostBlackListsValidator hblv=new HostBlackListsValidator();
-        int N=5;
-        List<Integer> blackListOcurrences=hblv.checkHost("200.24.34.55",N);
+        int N=80000;
+//        System.out.println("Esperado:  The host was found in the following blacklists:[29, 10034, 20200, 31000, 70500]" + "para ip 202.24.34.55");
+        List<Integer> blackListOcurrences=hblv.checkHost("202.24.24.55",14);
         System.out.println("The host was found in the following blacklists:"+blackListOcurrences);
+//        blackListOcurrences=hblv.checkHost("202.24.24.55",N);
+//        System.out.println("The host was found in the following blacklists:"+blackListOcurrences);
+     
         
     }
 }
