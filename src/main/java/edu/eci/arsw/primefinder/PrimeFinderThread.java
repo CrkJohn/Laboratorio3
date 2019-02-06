@@ -8,7 +8,7 @@ import java.util.Random;
 public class PrimeFinderThread extends Thread {
 
 	int a, b;
-	private static Object sync = new Object();
+	private static Object sync = Control.sync;
 
 	private List<Integer> primes;
 	private boolean isWait;
@@ -18,27 +18,30 @@ public class PrimeFinderThread extends Thread {
 		this.primes = new ArrayList<>();
 		this.a = a;
 		this.b = b;
-		isWait = true;
+		isWait = false;
 	}
 
 	@Override
 	public void run() {
 		for (int i = a; i < b; i++) {
+			synchronized (sync) {
+				if (isWait) {
+					try {
+						sync.wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				isWait = false;
+			}
+			
+			
 			if (isPrime(i)) {
 				primes.add(i);
-//				System.out.println(i);
+				//System.out.println(i);
 			}
 		}
-		synchronized (sync) {
-			if (true) {
-				try {
-					sync.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			isWait = false;
-		}
+		
 	}
 
 	boolean isPrime(int n) {

@@ -19,7 +19,7 @@ public class Control extends Thread {
 	private final static int TMILISECONDS = 5000;
 	private static int primesFound = 0;
 	private final int NDATA = MAXVALUE / NTHREADS;
-	private static Object sync = new Object();
+	public static Object sync = new Object();
 
 	private PrimeFinderThread pft[];
 
@@ -47,23 +47,24 @@ public class Control extends Thread {
 		while (true){
 			for (PrimeFinderThread primeFinderThread : pft) {
 				primeFinderThread.setWait(true);
-				System.out.println(primeFinderThread.activeCount() +" inf " + primeFinderThread.a + " b "
-						+ ""+ primeFinderThread.b + " Total : " + primeFinderThread.getPrimes().size()  );
+//				System.out.println(primeFinderThread.activeCount() +" inf " + primeFinderThread.a + " b "
+//						+ ""+ primeFinderThread.b + " Total : " + primeFinderThread.getPrimes().size()  );
 				primesFound += (primeFinderThread.getPrimes().size());
 			}
-			synchronized (sync) {
-				sync.notifyAll();
-			}
+			
 			System.out.println("Total de los primos son : " + primesFound);
 			try {
 				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-				System.out.println("Enter");
+				System.out.println("Precione enter");
 				br.readLine();
 				Thread.sleep(TMILISECONDS);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
+			}
+			synchronized (sync) {
+				sync.notifyAll();
 			}
 		}
 	}
