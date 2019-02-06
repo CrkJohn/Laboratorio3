@@ -47,6 +47,8 @@ public class Control extends Thread {
 		while (true){
 			for (PrimeFinderThread primeFinderThread : pft) {
 				primeFinderThread.setWait(true);
+				System.out.println(primeFinderThread.activeCount() +" inf " + primeFinderThread.a + " b "
+						+ ""+ primeFinderThread.b + " Total : " + primeFinderThread.getPrimes().size()  );
 				primesFound += (primeFinderThread.getPrimes().size());
 			}
 			synchronized (sync) {

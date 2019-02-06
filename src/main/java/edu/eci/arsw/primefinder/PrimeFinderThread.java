@@ -1,5 +1,6 @@
 package edu.eci.arsw.primefinder;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -14,7 +15,7 @@ public class PrimeFinderThread extends Thread {
 
 	public PrimeFinderThread(int a, int b) {
 		super();
-		this.primes = new LinkedList<>();
+		this.primes = new ArrayList<>();
 		this.a = a;
 		this.b = b;
 		isWait = true;
@@ -29,7 +30,7 @@ public class PrimeFinderThread extends Thread {
 			}
 		}
 		synchronized (sync) {
-			if (isWait) {
+			if (true) {
 				try {
 					sync.wait();
 				} catch (InterruptedException e) {
