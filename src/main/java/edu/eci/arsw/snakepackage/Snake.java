@@ -1,5 +1,6 @@
 package edu.eci.arsw.snakepackage;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Random;
@@ -29,13 +30,15 @@ public class Snake extends Observable implements Runnable {
     
     
     public static Object monitor = SnakeApp.monitor;
-    private boolean isSleep;
+    
+    private boolean isSleep = false;
+    private boolean visible = true;
+    private Date deathDate = null;
     
     public Snake(int idt, Cell head, int direction) {
         this.idt = idt;
         this.direction = direction;
         generateSnake(head);
-        this.isSleep=false;
     }
     //
     public void setSnakeSleep(boolean newSnakeSleep) {
@@ -88,6 +91,9 @@ public class Snake extends Observable implements Runnable {
                     e.printStackTrace();
                 }
         	}else {
+        		//Para notificar los cambios al observador y ocultar las serpientes
+        		setChanged();
+                notifyObservers();
         		snakeSleep();
         	}
         	
@@ -131,6 +137,7 @@ public class Snake extends Observable implements Runnable {
             System.out.println("[" + idt + "] " + "CRASHED AGAINST BARRIER "
                     + newCell.toString());
             snakeEnd=true;
+            this.deathDate = new Date();
         }
     }
 
@@ -368,6 +375,18 @@ public class Snake extends Observable implements Runnable {
 
     public int getIdt() {
         return idt;
+    }
+    
+    public void setVisible(boolean newVisible) {
+    	this.visible=newVisible;
+    }
+    
+    public boolean isVisible() {
+    	return this.visible;
+    }
+    
+    public Date getDeathDate() {
+    	return this.deathDate;
     }
 
 }

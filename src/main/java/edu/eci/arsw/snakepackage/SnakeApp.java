@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import edu.eci.arsw.enums.GridSize;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -44,7 +45,6 @@ public class SnakeApp {
     public SnakeApp() {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         
-        
         frame = new JFrame("The Snake Race");
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,9 +75,31 @@ public class SnakeApp {
         JButton pauseB = new JButton("Pause");
         pauseB.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+            	int longestSnakeSize=-1, longestSnakeIndex=-1;
+            	Date worstSnakeDate=null; int worstSnakeIndex=-1;
             	for(int i=0; i!=MAX_THREADS; i++) {
+            		snakes[i].setVisible(false);
             		snakes[i].setSnakeSleep(true);
+            		
+            		int SnakeSZ = snakes[i].getBody().size();
+            		if(SnakeSZ>longestSnakeSize) {
+            			longestSnakeSize = SnakeSZ;
+            			longestSnakeIndex = i;
+            		}
+            		if(snakes[i].isSnakeEnd()) {
+            			if(worstSnakeDate == null) {
+            				worstSnakeDate = snakes[i].getDeathDate();
+            			}else {
+            				if(worstSnakeDate.after(snakes[i].getDeathDate())) {
+            					worstSnakeDate = snakes[i].getDeathDate();
+            					worstSnakeIndex = i;
+            				}
+            			}
+            		}
+            		
             	}
+            	snakes[longestSnakeIndex].setVisible(true);
+            	snakes[worstSnakeIndex].setVisible(true);
             }
         });
         
@@ -88,6 +110,7 @@ public class SnakeApp {
             	synchronized (monitor) {
             		for(int i=0; i!=MAX_THREADS; i++) {
                 		snakes[i].setSnakeSleep(false);
+                		snakes[i].setVisible(true);
                 	}
 					monitor.notifyAll();
 				}
@@ -108,7 +131,6 @@ public class SnakeApp {
     }
 
     private void init() {
-        
         
         
         for (int i = 0; i != MAX_THREADS; i++) {
@@ -142,7 +164,7 @@ public class SnakeApp {
         
 
     }
-
+    
     public static SnakeApp getApp() {
         return app;
     }
