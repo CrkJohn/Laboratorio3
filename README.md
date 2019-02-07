@@ -149,19 +149,19 @@ Control threads using wait/notify.
     
     Cuándo el juego abre el juego aún no se ha iniciado y las serpientes no están en movimiento.
     
-    	![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakeRaceStart.PNG)
+    ![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakeRaceStart.PNG)
     
     Una vez presionado el botón Start comienzan a moverse las serpientes.
     
-    	![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakeRaceStart2.PNG)
+    ![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakeRaceStart2.PNG)
     
     Al presionar el botón pause, se ocultarán se paran todas las serpientes y solamente se muestran la serpiente más larga y la peor serpiente.
     
-    	![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakePause.PNG)
+    ![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakePause.PNG)
     
     Al presionar el botón resume, se muestran todas las serpientes, y siguen
     normalmente su desplazamiento a través de la matriz.
     
-    	![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakeResume.PNG)
+    ![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakeResume.PNG)
 	
 
