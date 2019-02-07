@@ -155,7 +155,7 @@ Control threads using wait/notify.
     
     ![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakeRaceStart2.PNG)
     
-    Al presionar el botón pause, se ocultarán se paran todas las serpientes y solamente se muestran la serpiente más larga y la peor serpiente.
+    Al presionar el botón pause, se paran todas las serpientes y solamente se muestran la serpiente más larga y la peor serpiente, las demás serpientes se ocultan.
     
     ![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakePause.PNG)
     
