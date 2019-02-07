@@ -104,17 +104,19 @@ termina siendo mas eficiente pero no con mejor rendimiento.
 Control threads using wait/notify.
 1. Download the project PrimeFinder. this is a program that calculates prime numbers beetween 0 and M (Control.MAXVALUE),concurrently, distributing the searching of them between n (Control.NTHREADS) independent threads.
 
-[](https://github.com/CrkJohn/Laboratorio3/blob/master/src/main/java/edu/eci/arsw/primefinder/Control.java)
+[Solucion](https://github.com/CrkJohn/Laboratorio3/blob/master/src/main/java/edu/eci/arsw/primefinder/Control.java)
 
 2. Modify the application in such way that each t milliseconds of thread execution, all the threads stop and show the number of primes found until that moment. Then, you have to wait until press ENTER in order to resume the threads execution.Use the synchronization mechanisms given by java (wait y notify, notifyAll).
 
     Nos guiamos con el modelo concurrente productor-consumidor, a través de un monitor controlamos los hilos y el acceso a las variables.
     Output del generador de primos, con N hilos:
     
-    ![](https://github.com/CrkJohn/Laboratorio3/tree/master/img/SnakeRacePart1_2_2.PNG)
+    ![](https://github.com/CrkJohn/Laboratorio3/blob/master/img/SnakeRacePart1_2_2.PNG)
+    
+    
 ### Part 3
 
-![](https://github.com/CrkJohn/Laboratorio3/tree/master/img/SnakeRaceGame.PNG)
+![](https://github.com/CrkJohn/Laboratorio3/blob/tree/master/img/SnakeRaceGame.PNG)
 
 1. Analyse the code in order to understand how the threads are being used to create an autonomous behavior in the N snakes
 2. Accordingly, and using the game logic, identify and write clearly (ANSWERS.txt file)
@@ -147,18 +149,18 @@ Control threads using wait/notify.
     
     Cuándo el juego abre el juego aún no se ha iniciado y las serpientes no están en movimiento.
     
-    ![](https://github.com/CrkJohn/Laboratorio3/tree/master/img/SnakeRaceStart.PNG)
+    ![](https://github.com/CrkJohn/Laboratorio3/blob/tree/master/img/SnakeRaceStart.PNG)
     
     Una vez presionado el botón Start comienzan a moverse las serpientes.
     
-    ![](https://github.com/CrkJohn/Laboratorio3/tree/master/img/SnakeRaceStart2.PNG)
+    ![](https://github.com/CrkJohn/Laboratorio3/blob/tree/master/img/SnakeRaceStart2.PNG)
     
     Al presionar el botón pause, se ocultarán se paran todas las serpientes y solamente se muestran la serpiente más larga y la peor serpiente.
     
-    ![](https://github.com/CrkJohn/Laboratorio3/tree/master/img/SnakePause.PNG)
+    ![](https://github.com/CrkJohn/Laboratorio3/blob/tree/master/img/SnakePause.PNG)
     
     Al presionar el botón resume, se muestran todas las serpientes, y siguen
     normalmente su desplazamiento a través de la matriz.
     
-    ![](https://github.com/CrkJohn/Laboratorio3/tree/master/img/SnakeResume.PNG)
+    ![](https://github.com/CrkJohn/Laboratorio3/blob/tree/master/img/SnakeResume.PNG)
 
