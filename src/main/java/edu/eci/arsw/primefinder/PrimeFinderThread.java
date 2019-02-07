@@ -34,8 +34,6 @@ public class PrimeFinderThread extends Thread {
 				}
 				isWait = false;
 			}
-			
-			
 			if (isPrime(i)) {
 				primes.add(i);
 				//System.out.println(i);
@@ -62,7 +60,7 @@ public class PrimeFinderThread extends Thread {
 	}
 	
 	public void setWait(boolean newWait) {
-		 isWait = true;
+		 isWait = newWait;
 	}
 
 }

@@ -98,8 +98,13 @@ public class SnakeApp {
             		}
             		
             	}
-            	snakes[longestSnakeIndex].setVisible(true);
-            	snakes[worstSnakeIndex].setVisible(true);
+            	if(longestSnakeIndex != -1) {
+            		snakes[longestSnakeIndex].setVisible(true);
+            	}
+            	if(worstSnakeIndex != -1) {
+            		snakes[worstSnakeIndex].setVisible(true);
+            	}
+            	
             }
         });
         
