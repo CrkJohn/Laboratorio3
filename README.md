@@ -78,13 +78,23 @@ System.out.println("The host was found in the following blacklists:"+blackListOc
 
 
 #### Part III - Discussion
+- Un contador global para los ```N``` hilos, donde este se instancia en contralador y asi logrando que en el ```run```  del contralador ir verficando el valor que se lleva.
+- El problema que se tendria seria  interleaving pero sincronizando los hilos y manejando una cola esperados se podria solucionar este problema.
 
 #### Part IV - Performance Evaluation 
-1. ![](https://github.com/CrkJohn/Laboratorio3/blob/master/Foticos/1Thread.PNG)
-2. ![](https://github.com/CrkJohn/Laboratorio3/blob/master/Foticos/2Thread.PNG)
-3. ![](https://github.com/CrkJohn/Laboratorio3/blob/master/Foticos/3Thread.PNG)
-4. ![](https://github.com/CrkJohn/Laboratorio3/blob/master/Foticos/50Thread.PNG)
-5. ![](https://github.com/CrkJohn/Laboratorio3/blob/master/Foticos/100Thread.PNG)
-6.  
-7. El numero de cores y el dos veces el numero de cores tiene el mismos comportamiento 
-8.
+1.
+![](https://github.com/CrkJohn/Laboratorio3/blob/master/Foticos/1Thread.PNG)
+2.
+![](https://github.com/CrkJohn/Laboratorio3/blob/master/Foticos/2Thread.PNG)
+3.
+![](https://github.com/CrkJohn/Laboratorio3/blob/master/Foticos/3Thread.PNG)
+4.
+![](https://github.com/CrkJohn/Laboratorio3/blob/master/Foticos/50Thread.PNG)
+5. 
+![](https://github.com/CrkJohn/Laboratorio3/blob/master/Foticos/100Thread.PNG)
+6. El rendimiento de un programa no se da por aumentar la cantidad de hilos si no por la cantidad de cores que tiene la maquina, así sabiendo que cada proceso va tener un maximo donde la funcion de la aceleracion del programa se estabilizara , pero al evaluar n en S(n)
+termina siendo mas eficiente pero no con mejor rendimiento.
+
+7. El numero de cores y el dos veces el numero de cores tiene el mismos comportamiento.
+
+
